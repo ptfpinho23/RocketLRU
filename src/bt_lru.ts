@@ -1,5 +1,6 @@
+import { TreeNode } from "./interfaces";
 
-class LRUCache<T> {
+export class BSTLruCache<T> {
     private capacity: number;
     private cache: Map<string, TreeNode<T>> = new Map();
     private head: TreeNode<T> | undefined;
@@ -76,8 +77,8 @@ class LRUCache<T> {
     }
 }
 
-function LRUCacheDecorator<T>(capacity: number) {
-    const cache = new LRUCache<T>(capacity);
+function BSTLruCacheDecorator<T>(capacity: number) {
+    const cache = new BSTLruCache<T>(capacity);
     return (target: any, propertyKey: string, descriptor: PropertyDescriptor) => {
         const originalMethod = descriptor.value;
         descriptor.value = function (...args: any[]) {
